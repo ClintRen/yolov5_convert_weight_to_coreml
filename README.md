@@ -30,12 +30,12 @@ It is worth noting that the parameter of yolov5_repo in convert.py is required. 
 In this repo, you can run the following command to get some coreml weight files of yolov5s.
 
 ```bash
-python convert.py --yolov5_repo /path/to/yolov5 --weight yolov5s.pt --img-size 640 --quantize
+python convert.py --yolov5-repo /path/to/yolov5 --weight yolov5s.pt --img-size 640 --quantize
 ```
 
-yolov5s.mlmodel, yolov5s_FP16.mlmodel and yolov5s_Int8.mlmodel will be generated in the current directory.
+yolov5s.mlmodel, yolov5s_FP16.mlmodel and yolov5s_Int8.mlmodel will be generated in the weight directory.
 ## Detection
-The pictures below are detected by the yolov5s_Int8.mlmodel in preview on mac.
+The pictures below are detected by the yolov5s_Int8.mlmodel in preview on MAC.
 
 Please give a star If it helps you, thanks. 
 
