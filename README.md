@@ -32,17 +32,18 @@ Compared to other tools, it:
 Yolov5 is required for this tool, so clone [Yolov5 repo](https://github.com/ultralytics/yolov5) first and install [requirements.txt](https://github.com/ultralytics/yolov5/blob/master/requirements.txt) in a Python >= 3.8.0 environment. 
 
 ```shell
-git clone https://github.com/ultralytics/yolov5  # clone
+git clone https://github.com/ultralytics/yolov5 # clone
 cd yolov5
-pip install -r requirements.txt  # install
+git checkout v6.2                    # (recommend)switch to v6.2 tag
+pip install -r requirements.txt      # install environment
 ```
 
 Then, clone this repo and install `coremltools == 6.0` .
 
 ```shell
-git clone https://github.com/ClintRen/yolov5_convert_weight_to_coreml.git # clone
+git clone https://github.com/ClintRen/ yolov5_convert_weight_to_coreml.git  # clone
 cd yolov5_convert_weight_to_coreml
-pip install coremltools==6.0  # install
+pip install coremltools==6.0         # install
 ```
 
 ***Note:*** *We recommend using `yolov5 == 6.2.0` and `coremltools == 6.0` as we tested.* 
