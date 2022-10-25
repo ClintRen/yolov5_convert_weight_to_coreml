@@ -1,43 +1,85 @@
 ## Introduction
 
-A script convert .pt file of [yolov5](https://github.com/ultralytics/yolov5) weight to .coreml file of apple app platform. It is easy to add decode layer and NMS to the model.
+This repo provides a Weight Conversion Tool which can be used to export a Yolov5 model (e.g., yolov5s.pt) to a CoreML model (e.g., yolov5s.mlmodel) with a decoding layer and an non maximum suppression layer (NMS).
 
-- **easy to use**
 
-  You just setup environment and run the script with your model parameters, then you can get some coreml weight files.
 
-- **Support of quantization**
+## Advantages
 
-  The Fp16 and Int8 quantization is supported. In addition, MAC is not required by quantization.
+Compared to other tools, it:
 
-## Installation
+- **Can be used simply and quickly**
 
-The [yolov5](https://github.com/ultralytics/yolov5) is required to run this script. You should follow the instructions to deploy the yolov5 runtime environment ([yolov5 v6.2](https://github.com/ultralytics/yolov5/tree/v6.2) has been tested in python3.8). 
+  After setting up the environment, you just need to input a Yolov5 model with its parameters in `convert.py`  to get the CoreML model.
 
-Also, the coremltools is required.
+- **Support quantization**
 
-```bash
-pip install coremltools==6.0
-```
+  In addition to the default obtained Fp32 model, Fp16 and Int8 quantization is also supported in our tool. ***Note:*** *Quantization is supported on both MacOS and Linux while we haven't tested it on windows yet.*
+  
+- **Can be previewed on Xcode without coding**
 
-## Getting Started
+  We added a decoding layer and an NMS layer in comparison to the [official weight conversion tools](https://github.com/ultralytics/yolov5/issues/251) so that the exported model works nice with Apple version framework and can be previewed on Xcode without any coding.
 
-There are explanations for converting model parameters in convert.py.
+  
 
-It is worth noting that the parameter of yolov5_repo in convert.py is required. It is a path of the yolov5 repo.
+## Before You Start
 
-## For Example
-In this repo, you can run the following command to get some coreml weight files of yolov5s.
+Yolov5 is required for this tool, so clone [Yolov5 repo](https://github.com/ultralytics/yolov5) first and install [requirements.txt](https://github.com/ultralytics/yolov5/blob/master/requirements.txt) in a Python >= 3.8.0 environment. 
 
 ```bash
-python convert.py --yolov5-repo /path/to/yolov5 --weight yolov5s.pt --img-size 640 --quantize
+git clone https://github.com/ultralytics/yolov5  # clone
+cd yolov5
+pip install -r requirements.txt  # install
 ```
 
-yolov5s.mlmodel, yolov5s_FP16.mlmodel and yolov5s_Int8.mlmodel will be generated in the weight directory.
-## Detection
-The pictures below are detected by the yolov5s_Int8.mlmodel in preview on MAC.
+Then, clone this repo and install `coremltools == 6.0` .
 
-Please give a star If it helps you, thanks. 
+```bash
+git clone https://github.com/ClintRen/yolov5_convert_weight_to_coreml.git # clone
+cd yolov5_convert_weight_to_coreml
+pip install coremltools==6.0  # install
+```
+
+***Note:*** *We recommend using `yolov5 == 6.2.0` and `coremltools == 6.0` as we tested.* 
+
+
+
+## Usage
+
+Some of the parameters should be changed in `convert.py` to meet you needs:
+
+| Parameters      | Explanations                          |
+| --------------- | ------------------------------------- |
+| `--yolov5-repo` | path to your yolov5 repo              |
+| `--weight`      | yolov5 weights path                   |
+| `--img-size`    | image imput size (pixels)             |
+| `--conf-thres`  | confidence threshold                  |
+| `--iou-thres`   | NMS IoU threshold                     |
+| `--device`      | cuda device, i.e. 0 or 0,1,2,3 or cpu |
+| `--quantize`    | quantize model to FP16 and Int8       |
+
+
+
+## Example
+This command exports a pretrained Yolov5s model to a CoreML model.  The CoreML models (yolov5s.mlmodel, yolov5s_FP16.mlmodel and yolov5s_Int8.mlmodel) will be generated in the current directory.
+
+```bash
+python convert.py --yolov5_repo /path/to/yolov5 --weight yolov5s.pt --img-size 640 --quantize
+```
+
+***Tip :** add `--quantize` to export models at Fp16 and Int8 precision for smaller file sizes.*
+
+
+
+## Preview on Xcode
+
+After exporting the CoreML models, you can preview them on Xcode without coding. 
+
+The details and preview examples are shown below, please give a star if it helps you, thanks. 
+
+![general](pictures\general.png)
+
+![predictions](pictures\predictions.png)
 
 ![markdown picture](pictures/zidane_res_Int8.png)
 
