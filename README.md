@@ -16,20 +16,20 @@ The [yolov5](https://github.com/ultralytics/yolov5) is required to run this scri
 
 Also, the coremltools is required.
 
-```bash
+```shell
 pip install coremltools==6.0
 ```
 
 ## Getting Started
 
-There are explanations for converting model parameters in convert.py.
+There are explanations for converting model parameters in [convert.py](convert.py).
 
-It is worth noting that the parameter of yolov5_repo in convert.py is required. It is a path of the yolov5 repo.
+It is worth noting that the parameter of yolov5_repo in [convert.py](convert.py) is required. It is a path of the yolov5 repo.
 
 ## For Example
 In this repo, you can run the following command to get some coreml weight files of yolov5s.
 
-```bash
+```shell
 python convert.py --yolov5-repo /path/to/yolov5 --weight yolov5s.pt --img-size 640 --quantize
 ```
 

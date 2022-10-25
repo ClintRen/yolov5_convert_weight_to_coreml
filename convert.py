@@ -11,13 +11,13 @@ if __name__ == "__main__":
         help="path to yolov5 repo",
     )
     parser.add_argument(
-        "--weight", type=str, default="yolov5s.pt", help="yolov5 weights path"
+        "--weight", type=str, default="yolov5s.pt", help="yolov5 weight path"
     )
     parser.add_argument(
         "--img-size",
         type=int,
         default=640,
-        help="image imput size (pixels)",
+        help="image input size (pixels)",
     )
     parser.add_argument(
         "--conf-thres", type=float, default=0.25, help="confidence threshold"
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--quantize",
-        default=True,
+        default=False,
         action="store_true",
         help="quantize model to FP16 and Int8",
     )
