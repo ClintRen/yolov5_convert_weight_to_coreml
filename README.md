@@ -14,7 +14,8 @@ Compared to other tools, it:
 
 - **Support quantization**
 
-  In addition to the default obtained Fp32 model, Fp16 and Int8 quantization is also supported in our tool. ***Note:*** *Quantization is supported on both MacOS and Linux while we haven't tested it on windows yet.*
+  In addition to the default obtained Fp32 model, Fp16 and Int8 quantization is also supported in our tool. 
+  ***Note:*** *Quantization is supported on both MacOS and Linux while we haven't tested it on windows yet.*
   
 - **Can be previewed on Xcode without coding**
 
@@ -77,9 +78,9 @@ After exporting the CoreML models, you can preview them on Xcode without coding.
 
 The details and preview examples are shown below, please give a star if it helps you, thanks. 
 
-![general](pictures\general.png)
+![general](pictures/general.png)
 
-![predictions](pictures\predictions.png)
+![predictions](pictures/predictions.png)
 
 ![markdown picture](pictures/zidane_res_Int8.png)
 
