@@ -36,10 +36,10 @@ if __name__ == "__main__":
     )
 
     # Other model options
-    parser.add_argument("--description", default="yolov5s", help="Model description")
-    parser.add_argument("--author", default="yolov5", help="Model author")
-    parser.add_argument("--version", default="6.2", help="Model version")
-    parser.add_argument("--license", default="GPL-3.0", help="Model license")
+    parser.add_argument("--description", default="yolov5s", help="model description")
+    parser.add_argument("--author", default="yolov5", help="model author")
+    parser.add_argument("--version", default="6.2", help="model version")
+    parser.add_argument("--license", default="GPL-3.0", help="model license")
     args = parser.parse_args()
     sys.path.insert(0, args.yolov5_repo)
 

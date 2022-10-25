@@ -1,3 +1,6 @@
+<div align=center>
+English | <a href=https://blog.csdn.net/qq_42485643/article/details/127495536>简体中文</a>
+</div>
 ## Introduction
 
 This repo provides a Weight Conversion Tool which can be used to export a Yolov5 model (e.g., yolov5s.pt) to a CoreML model (e.g., yolov5s.mlmodel) with a decoding layer and an non maximum suppression layer (NMS).
@@ -10,7 +13,7 @@ Compared to other tools, it:
 
 - **Can be used simply and quickly**
 
-  After setting up the environment, you just need to input a Yolov5 model with its parameters in `convert.py`  to get the CoreML model.
+  After setting up the environment, you just need to input a Yolov5 model with its parameters in [convert.py](convert.py)  to get the CoreML model.
 
 - **Support quantization**
 
@@ -45,7 +48,7 @@ pip install coremltools==6.0  # install
 
 ## Usage
 
-Some of the parameters should be changed in `convert.py` to meet you needs:
+Some of the parameters should be changed in [convert.py](convert.py) to meet you needs:
 
 | Parameters      | Explanations                          |
 | --------------- | ------------------------------------- |
@@ -56,11 +59,13 @@ Some of the parameters should be changed in `convert.py` to meet you needs:
 | `--iou-thres`   | NMS IoU threshold                     |
 | `--device`      | cuda device, i.e. 0 or 0,1,2,3 or cpu |
 | `--quantize`    | quantize model to FP16 and Int8       |
-
-
+| `--description` | model description                     |
+| `--author`      | model author                          |
+| `--version`     | model version                         |
+| `--license`     | model license                         |
 
 ## Example
-This command exports a pretrained Yolov5s model to a CoreML model.  The CoreML models (yolov5s.mlmodel, yolov5s_FP16.mlmodel and yolov5s_Int8.mlmodel) will be generated in the current directory.
+This command exports a pretrained Yolov5s model to a CoreML model.  The CoreML models (yolov5s.mlmodel, yolov5s_FP16.mlmodel and yolov5s_Int8.mlmodel) will be generated in the weight directory.
 
 ```shell
 python convert.py --yolov5-repo /path/to/yolov5 --weight yolov5s.pt --img-size 640 --quantize
