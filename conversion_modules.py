@@ -102,7 +102,7 @@ def createNmsModelSpec(
     # Some good default values for the two additional inputs, can be overwritten when using the model
     nms.iouThreshold = iouThreshold
     nms.confidenceThreshold = confidenceThreshold
-    nms.stringClassLabels.vector.extend(classLabels)
+    nms.stringClassLabels.vector.extend(list(classLabels.values()) if isinstance(classLabels,dict) else classLabels)
 
     return nmsSpec
 
