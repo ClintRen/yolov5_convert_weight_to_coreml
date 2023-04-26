@@ -44,6 +44,7 @@ Then, clone this repo and install `coremltools == 6.0` .
 git clone https://github.com/ClintRen/ yolov5_convert_weight_to_coreml.git  # clone
 cd yolov5_convert_weight_to_coreml
 pip install coremltools==6.0         # install
+pip install numpy==1.23.1            # **IMPORTANT** New version of numpy may cause a attribute error
 ```
 
 ***Note:*** *We recommend using `yolov5 == 6.2.0` and `coremltools == 6.0` as we tested.* 
